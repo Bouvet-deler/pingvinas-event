@@ -6,13 +6,13 @@ namespace TestProject;
 public class AnagramTests
 {
     [Fact]
-    public async void AreAnagramReturnsTrueIfAnagram()
+    public async void AreAnagramsReturnsTrueIfAnagram()
     {
         AnagramController? anagramController = new();
 
-        Assert.False(await anagramController.AreAnagram("apple", "banana"));
-        Assert.True(await anagramController.AreAnagram("dusty", "study"));
-        Assert.False(await anagramController.AreAnagram("elephant", "eeeeeeee"));
-        Assert.True(await anagramController.AreAnagram("the morse code", "here come dots"));
+        Assert.False(await anagramController.AreAnagrams("apple", "banana"));
+        Assert.True(await anagramController.AreAnagrams("dusty", "study"));
+        Assert.False(await anagramController.AreAnagrams("elephant", "eeeeeeee"));
+        Assert.True(await anagramController.AreAnagrams("the morse code", "here come dots"));
     }
 }

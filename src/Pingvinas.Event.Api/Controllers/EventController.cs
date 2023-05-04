@@ -19,7 +19,7 @@ public class EventController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<EventDto>>> Get() 
+    public async Task<ActionResult<List<EventDto>>> Get() //TODO: Should be able to filter this on active events.
         => Ok(await _service.GetEvents());
 
     [HttpGet("/{id}")]
