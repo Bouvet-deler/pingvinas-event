@@ -92,6 +92,11 @@ public class EventRepository : IEventRepository
 
     public Task<IEnumerable<PingvinEvent>> GetEvents()
     {
-        throw new NotImplementedException();
+        List<PingvinEvent> events = new();
+        for (var i = 0; i < 10; i++)
+        {
+            events.Add(CreatePingvinEvent());
+        }
+        return Task.Run(() => events.AsEnumerable());
     }
 }

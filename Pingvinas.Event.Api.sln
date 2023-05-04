@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pingvinas.Event.Api", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pingvinas.Event.Core", "src\Pingvinas.Event.Core\Pingvinas.Event.Core.csproj", "{17FB5867-DB18-4C35-B4ED-5C5CC528795A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pingvinas.Event.Domain", "src\Pingvinas.Event.Domain\Pingvinas.Event.Domain.csproj", "{7BA4DE5F-81D1-48DD-BBFD-AFD46025F070}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pingvinas.Event.Domain", "src\Pingvinas.Event.Domain\Pingvinas.Event.Domain.csproj", "{7BA4DE5F-81D1-48DD-BBFD-AFD46025F070}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{B7956C97-7DCF-407D-B9AF-5A718CB23639}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{7BA4DE5F-81D1-48DD-BBFD-AFD46025F070}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BA4DE5F-81D1-48DD-BBFD-AFD46025F070}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BA4DE5F-81D1-48DD-BBFD-AFD46025F070}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7956C97-7DCF-407D-B9AF-5A718CB23639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7956C97-7DCF-407D-B9AF-5A718CB23639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7956C97-7DCF-407D-B9AF-5A718CB23639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7956C97-7DCF-407D-B9AF-5A718CB23639}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
