@@ -5,14 +5,31 @@ namespace TestProject;
 
 public class AnagramTests
 {
-    [Fact]
-    public async void AreAnagramsReturnsTrueIfAnagram()
-    {
-        AnagramController? anagramController = new();
+    private readonly AnagramController _anagramController = new();
 
-        Assert.False(await anagramController.AreAnagrams("apple", "banana"));
-        Assert.True(await anagramController.AreAnagrams("dusty", "study"));
-        Assert.False(await anagramController.AreAnagrams("elephant", "eeeeeeee"));
-        Assert.True(await anagramController.AreAnagrams("the morse code", "here come dots"));
-    }
+
+    [Fact]
+    public async void AreAnagramsReturnsTrueIfAnagram() =>
+        Assert.True(await _anagramController.AreAnagrams("dusty", "study"));
+
+    [Fact]
+    public async void AreAnagramsReturnsFalseIfNotAnagram() =>
+        Assert.False(await _anagramController.AreAnagrams("apple", "banana"));
+
+    [Fact]
+    public async void AreAnagramsReturnsTrueIfIdentical() =>
+        Assert.True(await _anagramController.AreAnagrams("apple", "apple"));
+
+    [Fact]
+    public async void AreAnagramsReturnsFalseIfOnlySimilarCharacters() =>
+        Assert.False(await _anagramController.AreAnagrams("elephant", "elaphant"));
+
+    [Fact]
+    public async void AreAnagramsReturnsFalseIfOnlyOneCharacters() =>
+        Assert.False(await _anagramController.AreAnagrams("eeeeeeee", "elephant"));
+
+    [Fact]
+    public async void AreAnagramsReturnsTrueIfAnagramWithSpaces() =>
+        Assert.True(await _anagramController.AreAnagrams("the morse code", "here come dots"));
+
 }

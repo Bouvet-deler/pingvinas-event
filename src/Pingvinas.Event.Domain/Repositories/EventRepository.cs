@@ -45,6 +45,7 @@ public class EventRepository : IEventRepository
     {
         var maxParticipants = _rng.Next(10, 100);
         var participantCount = _rng.Next(10, maxParticipants);
+        var startDate = DateTime.Now.AddDays(_rng.Next(-10, 10));
         var eventId = Guid.NewGuid().ToString();
         var commerceData = new Commerce();
         var nameData = new Name();
@@ -59,9 +60,9 @@ public class EventRepository : IEventRepository
             },
             Id = eventId,
             Description = commerceData.ProductDescription(),
-            EndDate = DateTime.Now.AddDays(1),
+            EndDate = startDate.AddDays(1),
             IsSocial = true,
-            ResponseDeadline = DateTime.Now.AddDays(-2),
+            ResponseDeadline = startDate.AddDays(-2),
             MaxParticipants = maxParticipants,
             MinParticipants = 10,
             NumberOfGuestsAllowed = 100,
@@ -74,7 +75,7 @@ public class EventRepository : IEventRepository
             Summary = commerceData.ProductDescription(),
             RequireResponse = true,
             Title = commerceData.Product(),
-            StartDate = DateTime.Now.AddDays(1),
+            StartDate = startDate,
             Location = new Company().CompanyName(),
             OwnerName = nameData.FullName(),
             ParticipantCount = participantCount,
