@@ -47,5 +47,5 @@ public interface IEventService
     /// Gets all events in the database.
     /// </summary>
     /// <returns></returns>
-    Task<IList<EventDto>> GetEvents();  //TODO: Should be able to filter this, at least on active events.
+    Task<IList<EventDto>> GetEvents();
 }
