@@ -1,4 +1,4 @@
-﻿using Pingvinas.Event.Core.Features.PingvinEvent;
+﻿using Pingvinas.Event.Core.Features.PingvinEvents;
 using Pingvinas.Event.Domain.Repositories;
 
 namespace Pingvinas.Event.Api.Extensions;

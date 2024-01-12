@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Pingvinas.Event.Core.DTOs;
-using Pingvinas.Event.Core.Features.PingvinEvent;
+using Pingvinas.Event.Core.Features.PingvinEvents;
 
 namespace Pingvinas.Event.Api.Controllers;
 

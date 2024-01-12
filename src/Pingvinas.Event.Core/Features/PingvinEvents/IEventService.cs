@@ -1,6 +1,6 @@
 ﻿using Pingvinas.Event.Core.DTOs;
 
-namespace Pingvinas.Event.Core.Features.PingvinEvent;
+namespace Pingvinas.Event.Core.Features.PingvinEvents;
 
 public interface IEventService
 {

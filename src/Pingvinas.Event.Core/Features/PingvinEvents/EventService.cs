@@ -4,7 +4,7 @@ using Pingvinas.Event.Domain.Models;
 using Pingvinas.Event.Domain.Repositories;
 using System.Data.Common;
 
-namespace Pingvinas.Event.Core.Features.PingvinEvent;
+namespace Pingvinas.Event.Core.Features.PingvinEvents;
 
 public class EventService : IEventService
 {
