@@ -8,38 +8,18 @@ namespace Pingvinas.Event.Api.Controllers;
 public class UserController : ControllerBase
 {
     [HttpGet("/me")]
-    public async Task<ActionResult> GetMyDetails()
-    {
-        return await Task.Run(() =>
-        {
-            return Ok();
-        });
-    }
+    public ActionResult<UserDto> GetMyDetails()
+        => Ok();
 
     [HttpPost]
-    public async Task<ActionResult> AddUser([FromBody] UserDto user)
-    {
-        return await Task.Run(() =>
-        {
-            return Created(string.Empty,new {});
-        });
-    }
+    public ActionResult<string> AddUser([FromBody] UserDto user)
+        => Created(string.Empty,new {});
     
     [HttpPut]
-    public async Task<ActionResult> UpdateUser([FromBody] UserDto user)
-    {
-        return await Task.Run(() =>
-        {
-            return NoContent();
-        });
-    }
-
+    public ActionResult<bool> UpdateUser([FromBody] UserDto user)
+        => NoContent();
+    
     [HttpDelete("/{userId}")]
-    public async Task<ActionResult> DeactivateUser(string userId)
-    {
-        return await Task.Run(() =>
-        {
-            return Ok();
-        });
-    }
+    public ActionResult<bool> DeactivateUser(string userId)
+        => Ok();
 }
