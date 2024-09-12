@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Pingvinas.Event.Core.Features.User;
 using Pingvinas.Event.Domain.Models;
 
 namespace Pingvinas.Event.Domain.Context;

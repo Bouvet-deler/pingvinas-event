@@ -1,6 +1,4 @@
-﻿using Pingvinas.Event.Core.Features.User;
-
-namespace Pingvinas.Event.Domain.Models;
+﻿namespace Pingvinas.Event.Domain.Models;
 
 public class PingvinEvent
 {
