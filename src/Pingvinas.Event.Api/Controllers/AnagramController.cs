@@ -9,6 +9,10 @@ public class AnagramController
     [HttpGet($"/{nameof(AreAnagrams)}")]
     public async Task<bool> AreAnagrams(string word, string potentialAnagram)
     {
-        return word == potentialAnagram; //TODO: Eirik says this is not correct, whattodo?
+        // TODO: Eirik says this is not correct, whattodo?
+        return await Task.Run(() =>
+        {    
+            return word == potentialAnagram;
+        });
     }
 }

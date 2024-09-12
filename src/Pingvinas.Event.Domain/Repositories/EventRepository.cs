@@ -12,6 +12,7 @@ public class EventRepository : IEventRepository
     {
         _rng = new Random();
     }
+
     public Task AddParticipantAsync(Participant participant)
     {
         return Task.Delay(100);
@@ -93,7 +94,7 @@ public class EventRepository : IEventRepository
 
     public Task<IEnumerable<PingvinEvent>> GetEvents()
     {
-        List<PingvinEvent> events = new();
+        List<PingvinEvent> events = [];
         for (var i = 0; i < 10; i++)
         {
             events.Add(CreatePingvinEvent());

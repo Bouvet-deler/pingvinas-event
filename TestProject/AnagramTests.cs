@@ -9,27 +9,27 @@ public class AnagramTests
 
 
     [Fact]
-    public async void AreAnagramsReturnsTrueIfAnagram() =>
+    public async Task AreAnagramsReturnsTrueIfAnagram() =>
         Assert.True(await _anagramController.AreAnagrams("dusty", "study"));
 
     [Fact]
-    public async void AreAnagramsReturnsFalseIfNotAnagram() =>
+    public async Task AreAnagramsReturnsFalseIfNotAnagram() =>
         Assert.False(await _anagramController.AreAnagrams("apple", "banana"));
 
     [Fact]
-    public async void AreAnagramsReturnsTrueIfIdentical() =>
+    public async Task AreAnagramsReturnsTrueIfIdentical() =>
         Assert.True(await _anagramController.AreAnagrams("apple", "apple"));
 
     [Fact]
-    public async void AreAnagramsReturnsFalseIfOnlySimilarCharacters() =>
+    public async Task AreAnagramsReturnsFalseIfOnlySimilarCharacters() =>
         Assert.False(await _anagramController.AreAnagrams("elephant", "elaphant"));
 
     [Fact]
-    public async void AreAnagramsReturnsFalseIfOnlyOneCharacters() =>
+    public async Task AreAnagramsReturnsFalseIfOnlyOneCharacters() =>
         Assert.False(await _anagramController.AreAnagrams("eeeeeeee", "elephant"));
 
     [Fact]
-    public async void AreAnagramsReturnsTrueIfAnagramWithSpaces() =>
+    public async Task AreAnagramsReturnsTrueIfAnagramWithSpaces() =>
         Assert.True(await _anagramController.AreAnagrams("the morse code", "here come dots"));
 
 }

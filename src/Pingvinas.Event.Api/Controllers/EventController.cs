@@ -6,20 +6,14 @@ namespace Pingvinas.Event.Api.Controllers;
 
 [ApiController]
 [Route("/api/[controller]")]
-public class EventController : ControllerBase
+public class EventController(IEventService service, ILogger<EventController> logger) : ControllerBase
 { 
-    private readonly IEventService _service;
-    private readonly ILogger<EventController> _logger;
+    private readonly IEventService _service = service;
+    private readonly ILogger<EventController> _logger = logger;
 
-    public EventController(IEventService service
-        ,ILogger<EventController> logger)
-    {
-        _service = service;
-        _logger = logger;
-    }
-
+    // TODO: Should be able to filter this on events that are still possible to attend.
     [HttpGet]
-    public async Task<ActionResult<List<EventDto>>> Get() //TODO: Should be able to filter this on events that are still possible to attend.
+    public async Task<ActionResult<List<EventDto>>> Get()
         => Ok(await _service.GetEvents());
 
     [HttpGet("/{id}")]
@@ -31,13 +25,19 @@ public class EventController : ControllerBase
     [HttpPost]
     public async Task<ActionResult> CreateEvent([FromBody] EventDto @event)
     {
-        return Created(string.Empty, new { });
+        return await Task.Run(() =>
+        {
+            return Created(string.Empty, new { });
+        });
     }
 
     [HttpPut]
     public async Task<ActionResult> UpdateEvent([FromBody] EventDto @event)
     {
-        return NoContent();
+        return await Task.Run(() =>
+        {
+            return NoContent();
+        });
     }
 
     /// <summary>
