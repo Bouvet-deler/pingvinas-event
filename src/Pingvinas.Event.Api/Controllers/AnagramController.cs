@@ -6,7 +6,7 @@ namespace Pingvinas.Event.Api.Controllers;
 [Route("/api/[controller]")]
 public class AnagramController : ControllerBase
 {
-    [HttpGet($"/{nameof(AreAnagrams)}")]
+    [HttpGet($"{nameof(AreAnagrams)}")]
     [ProducesResponseType(typeof(bool), 200)]
     public ActionResult<bool> AreAnagrams(string word, string potentialAnagram)
     {
