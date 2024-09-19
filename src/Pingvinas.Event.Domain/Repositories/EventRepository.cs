@@ -1,5 +1,4 @@
 ﻿using Bogus.DataSets;
-using Pingvinas.Event.Core.Features.User;
 using Pingvinas.Event.Domain.Models;
 
 namespace Pingvinas.Event.Domain.Repositories;
@@ -12,6 +11,7 @@ public class EventRepository : IEventRepository
     {
         _rng = new Random();
     }
+
     public Task AddParticipantAsync(Participant participant)
     {
         return Task.Delay(100);
@@ -49,15 +49,15 @@ public class EventRepository : IEventRepository
         var eventId = Guid.NewGuid().ToString();
         var commerceData = new Commerce();
         var nameData = new Name();
+        var internetData = new Internet();
         return new PingvinEvent
         {
             CreatorId = Guid.NewGuid().ToString(),
-            Creator = new User
-            {
-                Name = nameData.FullName(),
-                Active = true,
-                Id = Guid.NewGuid().ToString()
-            },
+            Creator = new User(
+                Guid.NewGuid().ToString(),
+                nameData.FullName(),
+                internetData.Email(),
+                true),
             Id = eventId,
             Description = commerceData.ProductDescription(),
             EndDate = startDate.AddDays(1),
@@ -66,12 +66,12 @@ public class EventRepository : IEventRepository
             MaxParticipants = maxParticipants,
             MinParticipants = 10,
             NumberOfGuestsAllowed = 100,
-            Owner = new User
-            {
-                Name = nameData.FullName(),
-                Active = true,
-                Id = Guid.NewGuid().ToString()
-            },
+            Owner = new User(
+                Guid.NewGuid().ToString(),
+                nameData.FullName(),
+                internetData.Email(),
+                true
+            ),
             Summary = commerceData.ProductDescription(),
             RequireResponse = true,
             Title = commerceData.Product(),
@@ -87,13 +87,13 @@ public class EventRepository : IEventRepository
     {
         for (var i = 0; i < participantCount; i++)
         {
-            yield return new Participant(eventId,Guid.NewGuid().ToString());
+            yield return new Participant(Guid.NewGuid().ToString(), eventId, Guid.NewGuid().ToString());
         }
     }
 
     public Task<IEnumerable<PingvinEvent>> GetEvents()
     {
-        List<PingvinEvent> events = new();
+        List<PingvinEvent> events = [];
         for (var i = 0; i < 10; i++)
         {
             events.Add(CreatePingvinEvent());

@@ -22,7 +22,7 @@ public class EventService : IEventService
         try
         {
             var userId = Guid.NewGuid().ToString(); // TODO: Should get this from claims.
-            await _repository.AddParticipantAsync(new Participant(eventId, userId!));
+            await _repository.AddParticipantAsync(new Participant(Guid.NewGuid().ToString(), eventId, userId!));
             return true;
         }
         catch (DbException e)

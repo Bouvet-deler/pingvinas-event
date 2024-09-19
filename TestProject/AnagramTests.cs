@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using Pingvinas.Event.Api.Controllers;
 
 namespace TestProject;
@@ -9,27 +8,27 @@ public class AnagramTests
 
 
     [Fact]
-    public async void AreAnagramsReturnsTrueIfAnagram() =>
-        Assert.True(await _anagramController.AreAnagrams("dusty", "study"));
+    public void AreAnagramsReturnsTrueIfAnagram() =>
+        Assert.True(_anagramController.AreAnagrams("dusty", "study"));
 
     [Fact]
-    public async void AreAnagramsReturnsFalseIfNotAnagram() =>
-        Assert.False(await _anagramController.AreAnagrams("apple", "banana"));
+    public void AreAnagramsReturnsFalseIfNotAnagram() =>
+        Assert.False(_anagramController.AreAnagrams("apple", "banana"));
 
     [Fact]
-    public async void AreAnagramsReturnsTrueIfIdentical() =>
-        Assert.True(await _anagramController.AreAnagrams("apple", "apple"));
+    public void AreAnagramsReturnsTrueIfIdentical() =>
+        Assert.True(_anagramController.AreAnagrams("apple", "apple"));
 
     [Fact]
-    public async void AreAnagramsReturnsFalseIfOnlySimilarCharacters() =>
-        Assert.False(await _anagramController.AreAnagrams("elephant", "elaphant"));
+    public void AreAnagramsReturnsFalseIfOnlySimilarCharacters() =>
+        Assert.False(_anagramController.AreAnagrams("elephant", "elaphant"));
 
     [Fact]
-    public async void AreAnagramsReturnsFalseIfOnlyOneCharacters() =>
-        Assert.False(await _anagramController.AreAnagrams("eeeeeeee", "elephant"));
+    public void AreAnagramsReturnsFalseIfOnlyOneCharacters() =>
+        Assert.False(_anagramController.AreAnagrams("eeeeeeee", "elephant"));
 
     [Fact]
-    public async void AreAnagramsReturnsTrueIfAnagramWithSpaces() =>
-        Assert.True(await _anagramController.AreAnagrams("the morse code", "here come dots"));
+    public void AreAnagramsReturnsTrueIfAnagramWithSpaces() =>
+        Assert.True(_anagramController.AreAnagrams("the morse code", "here come dots"));
 
 }

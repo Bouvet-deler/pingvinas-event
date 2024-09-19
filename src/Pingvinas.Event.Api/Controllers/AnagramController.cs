@@ -4,11 +4,14 @@ namespace Pingvinas.Event.Api.Controllers;
 
 [ApiController]
 [Route("/api/[controller]")]
-public class AnagramController
+public class AnagramController : ControllerBase
 {
     [HttpGet($"/{nameof(AreAnagrams)}")]
-    public async Task<bool> AreAnagrams(string word, string potentialAnagram)
+    [ProducesResponseType(typeof(bool), 200)]
+    public ActionResult<bool> AreAnagrams(string word, string potentialAnagram)
     {
-        return word == potentialAnagram; //TODO: Eirik says this is not correct, whattodo?
+        // TODO: Eirik says this is not correct, whattodo?
+        bool result = word == potentialAnagram;
+        return Ok(result);
     }
 }

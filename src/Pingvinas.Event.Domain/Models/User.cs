@@ -1,9 +1,3 @@
-﻿namespace Pingvinas.Event.Core.Features.User;
+﻿namespace Pingvinas.Event.Domain.Models;
 
-public class User
-{
-    public string Id { get; set; }
-    public string Name { get; set; }
-    public string Email { get; set; }
-    public bool Active { get; set; }
-}
+public record User(string Id, string Name, string Email, bool Active);

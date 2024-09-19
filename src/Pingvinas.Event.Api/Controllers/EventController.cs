@@ -11,34 +11,28 @@ public class EventController : ControllerBase
     private readonly IEventService _service;
     private readonly ILogger<EventController> _logger;
 
-    public EventController(IEventService service
-        ,ILogger<EventController> logger)
+    public EventController(IEventService service, ILogger<EventController> logger)
     {
         _service = service;
         _logger = logger;
     }
 
+    // TODO: Should be able to filter this on events that are still possible to attend.
     [HttpGet]
-    public async Task<ActionResult<List<EventDto>>> Get() //TODO: Should be able to filter this on events that are still possible to attend.
+    public async Task<ActionResult<List<EventDto>>> Get()
         => Ok(await _service.GetEvents());
 
     [HttpGet("/{id}")]
     public async Task<ActionResult<EventDto>> Get(string id)
-    {
-        return Ok(await _service.GetEvent(id));
-    }
+        => Ok(await _service.GetEvent(id));
 
     [HttpPost]
-    public async Task<ActionResult> CreateEvent([FromBody] EventDto @event)
-    {
-        return Created(string.Empty, new { });
-    }
+    public ActionResult<string> CreateEvent([FromBody] EventDto @event)
+        => Created(string.Empty, new { });
 
     [HttpPut]
-    public async Task<ActionResult> UpdateEvent([FromBody] EventDto @event)
-    {
-        return NoContent();
-    }
+    public ActionResult<bool> UpdateEvent([FromBody] EventDto @event)
+        => NoContent();
 
     /// <summary>
     /// Cancels the specified event.
@@ -46,6 +40,6 @@ public class EventController : ControllerBase
     /// <param name="eventId"></param>
     /// <returns></returns>
     [HttpDelete("/{eventId}")]
-    public async Task<ActionResult> CancelEvent(string eventId) 
+    public async Task<ActionResult<bool>> CancelEvent(string eventId) 
         => Ok(await _service.CancelEvent(eventId));
 }

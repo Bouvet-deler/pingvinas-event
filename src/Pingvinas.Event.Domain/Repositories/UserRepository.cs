@@ -1,4 +1,6 @@
-﻿namespace Pingvinas.Event.Core.Features.User;
+﻿using Pingvinas.Event.Domain.Models;
+
+namespace Pingvinas.Event.Domain.Repositories;
 
 public class UserRepository :IUserRepository
 {
