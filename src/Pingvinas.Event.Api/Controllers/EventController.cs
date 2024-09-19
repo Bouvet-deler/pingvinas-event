@@ -22,7 +22,7 @@ public class EventController : ControllerBase
     public async Task<ActionResult<List<EventDto>>> Get()
         => Ok(await _service.GetEvents());
 
-    [HttpGet("/{id}")]
+    [HttpGet("{id}")]
     public async Task<ActionResult<EventDto>> Get(string id)
         => Ok(await _service.GetEvent(id));
 
@@ -39,7 +39,7 @@ public class EventController : ControllerBase
     /// </summary>
     /// <param name="eventId"></param>
     /// <returns></returns>
-    [HttpDelete("/{eventId}")]
+    [HttpDelete("{eventId}")]
     public async Task<ActionResult<bool>> CancelEvent(string eventId) 
         => Ok(await _service.CancelEvent(eventId));
 }

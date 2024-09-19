@@ -4,10 +4,10 @@ using Pingvinas.Event.Core.DTOs;
 namespace Pingvinas.Event.Api.Controllers;
 
 [ApiController]
-[Route("api/{Controller}")]
+[Route("api/[controller]")]
 public class UserController : ControllerBase
 {
-    [HttpGet("/me")]
+    [HttpGet("me")]
     public ActionResult<UserDto> GetMyDetails()
         => Ok();
 
@@ -19,7 +19,7 @@ public class UserController : ControllerBase
     public ActionResult<bool> UpdateUser([FromBody] UserDto user)
         => NoContent();
     
-    [HttpDelete("/{userId}")]
+    [HttpDelete("{userId}")]
     public ActionResult<bool> DeactivateUser(string userId)
         => Ok();
 }
