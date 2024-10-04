@@ -9,26 +9,26 @@ public class AnagramTests
 
     [Fact]
     public void AreAnagramsReturnsTrueIfAnagram() =>
-        Assert.True(_anagramController.AreAnagrams("dusty", "study"));
+        Assert.True(_anagramController.AreAnagrams("dusty", "study").Value);
 
     [Fact]
     public void AreAnagramsReturnsFalseIfNotAnagram() =>
-        Assert.False(_anagramController.AreAnagrams("apple", "banana"));
+        Assert.False(_anagramController.AreAnagrams("apple", "banana").Value);
 
     [Fact]
     public void AreAnagramsReturnsTrueIfIdentical() =>
-        Assert.True(_anagramController.AreAnagrams("apple", "apple"));
+        Assert.True(_anagramController.AreAnagrams("apple", "apple").Value);
 
     [Fact]
     public void AreAnagramsReturnsFalseIfOnlySimilarCharacters() =>
-        Assert.False(_anagramController.AreAnagrams("elephant", "elaphant"));
+        Assert.False(_anagramController.AreAnagrams("elephant", "elaphant").Value);
 
     [Fact]
     public void AreAnagramsReturnsFalseIfOnlyOneCharacters() =>
-        Assert.False(_anagramController.AreAnagrams("eeeeeeee", "elephant"));
+        Assert.False(_anagramController.AreAnagrams("eeeeeeee", "elephant").Value);
 
     [Fact]
     public void AreAnagramsReturnsTrueIfAnagramWithSpaces() =>
-        Assert.True(_anagramController.AreAnagrams("the morse code", "here come dots"));
+        Assert.True(_anagramController.AreAnagrams("the morse code", "here come dots").Value);
 
 }
