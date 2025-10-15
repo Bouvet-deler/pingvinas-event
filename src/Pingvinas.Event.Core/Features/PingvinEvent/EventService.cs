@@ -52,8 +52,26 @@ public class EventService : IEventService
         throw new NotImplementedException();
     }
 
-    public Task<IList<EventDto>> GetEvents()
+    public async Task<IList<EventDto>> GetEvents()
     {
-        throw new NotImplementedException();
+        var events = await _repository.GetEvents();
+        return [.. events.Select(e => new EventDto
+        {
+            Id = e.Id,
+            Title = e.Title,
+            Description = e.Description,
+            OwnerName = e.OwnerName,
+            Location = e.Location,
+            Summary = e.Summary,
+            StartDate = e.StartDate,
+            EndDate = e.EndDate,
+            ResponseDeadline = e.ResponseDeadline,
+            NumberOfGuestsAllowed = e.NumberOfGuestsAllowed,
+            RequireResponse = e.RequireResponse,
+            MaxParticipants = e.MaxParticipants,
+            MinParticipants = e.MinParticipants,
+            ParticipantCount = e.ParticipantCount,
+            IsSocial = e.IsSocial
+        })];
     }
-}
+} 
